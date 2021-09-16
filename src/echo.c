@@ -19,7 +19,8 @@ int main()
   /*Second Milestone: test commands using the input from milestone one */
 
   /* Count_words test */
-  printf("Number of words: %d\n\n", count_words(user_input));
+  int str_length = count_words(user_input);
+  printf("Number of words: %d\n\n", str_length);
   
   /* word_start & word_terminator test */
   /* these also test space_char & non_space_char */
@@ -32,25 +33,18 @@ int main()
   char* str_copy = copy_str(user_input, string_length(user_input));
   printf("Copy of String: %s\n", str_copy);
   
-  // 4 Words String Test make sure with or without final backspace would display 4 words and no errors
+  // Test whole string to make sure start and terminator work correctly
   /*
-  while(int i=1 ; i < 4; i++){
+  int i = 1;
+  while(i < str_length){
   start_word = word_start(end_word);
   printf("Start of next: %s\n", start_word);
   end_word = word_terminator(start_word);
   printf("End of next: %s\n",end_word);
+  i++;
   }
-  /*
-  start_word = word_start(end_word);
-  printf("Start of next: %s\n", start_word);
-  end_word = word_terminator(start_word);
-  printf("End of next: %s\n",end_word);
-  start_word = word_start(end_word);
-  printf("Start of next: %s\n", start_word);
-  end_word = word_terminator(start_word);
-  printf("End of next: %s\n",end_word);
-  */
-    
+  */  
+
   return 0;
 
 }
