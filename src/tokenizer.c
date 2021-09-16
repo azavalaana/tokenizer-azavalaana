@@ -7,9 +7,7 @@
 int space_char(char c)
 {
     if(c == ' ' || c == '\t') 
-    {
         return 1;
-    }
     return 0;
 }
 
@@ -17,9 +15,7 @@ int space_char(char c)
 int non_space_char(char c)
 {
     if(c == ' ' || c == '\t') 
-    {
         return 0;
-    }
     return 1;
 }
 
@@ -30,9 +26,7 @@ char *word_start(char* str)
     {
         int ptr = 0; //Initialize a pointer
         if (space_char(str[ptr])) //In case it starts on a whitespace can skip to first letter
-        {
             str++;
-        }
         while (space_char(str[ptr]))
         {
             ptr++;
@@ -49,10 +43,7 @@ char *word_terminator(char* str)
     {
         str++;
         if (*str == 32) //Set to 32 as it means it doesn't point anywhere 
-        //if (space_char(*str))
-            {
                 return str; // Return the end of current word
-            }
     }
     return "0";
 }
@@ -66,16 +57,12 @@ int count_words(char* str)
     while(str[i] != '\0')
 {
         if(non_space_char(str[i]) && space_char(str[i+1]))
-        {
             count++;
-        }
         i++;
     }
     count += 1;
     if (space_char(str[i-2]))
-    {
         count--;
-    }
     return count;
 }
 
