@@ -12,7 +12,10 @@ Project 1: Tokenizer
 # Compiling & Running the Code
 To compile & execute the user interface program
 While being inside this directory write on the terminal 
-> make
-> This will compile the program, So to run it you'll write
+> make 
+> 
+This will compile the program, So to run it you'll write 
+> 
 > ./test 
-> (the compiling name is test since right now we are on the second milestone and it is still in a testing phase)
+> 
+ (the compiling name is test since right now we are on the second milestone and it is still in a testing phase)
