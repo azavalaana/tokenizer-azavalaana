@@ -10,14 +10,20 @@ int count = 0;
 int main()
 {
   /* First Milestone: Simple functioning UI that echos user input */
-  printf("Enter a String.\n> ");
+  printf("Enter a String. Type x to exit \n> ");
   char user_input[MAX];
   fgets(user_input, MAX, stdin);
-  printf("\nInput: %s\n", user_input);
+
+  if(user_input[0] == 'x'){
+    printf("On to the next one!\n");
+    return 0;
+  }
+
+  printf("\nMilestone 1\nInput: %s\n", user_input);
 
   /* After milestone one echo.c becomes the main ui for the tokenizer */
   /*Second Milestone: test commands using the input from milestone one */
-
+  printf("Milestone 2\n");
   /* Count_words test */
   int str_length = count_words(user_input);
   printf("Number of words: %d\n\n", str_length);
@@ -43,7 +49,9 @@ int main()
   printf("End of next: %s\n",end_word);
   i++;
   }
-  */  
+  */
+  if(user_input[0] != 'x')
+    main();
 
   return 0;
 
