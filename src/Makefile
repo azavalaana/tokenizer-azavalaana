@@ -1,4 +1,5 @@
 #Makefile - compiler for Lab 1
+all:
 
 make:
 	gcc -o test echo.c
