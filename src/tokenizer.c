@@ -55,18 +55,6 @@ char *word_terminator(char* str)
             }
     }
     return "0";
-    /*
-    if (count_words(str) > 0) // Determine if more than zero words exist
-    {
-        int ptr = 0; //Initialize a pointer
-        while (non_space_char(*str))
-        {
-            str++;
-        }
-        return (str++); //Returns a pointer to the first character of the next space-separated word
-    }
-        return "0"; // Return original array if no valid chars exist
-        */
 }
 
 // Counts the number of words in the string argument. 
