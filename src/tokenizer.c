@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "history.c"
 
-// Return true (non-zero) if c is a whitespace characer ('\t' or ' ').  
+/* Return true (non-zero) if c is a whitespace characer ('\t' or ' '). */ 
 int space_char(char c)
 {
     if(c == ' ' || c == '\t') 
@@ -11,7 +11,7 @@ int space_char(char c)
     return 0;
 }
 
-//Return true (non-zero) if c is a non-whitespace character (not tab or space).  
+/* Return true (non-zero) if c is a non-whitespace character (not tab or space). */
 int non_space_char(char c)
 {
     if(c == ' ' || c == '\t') 
@@ -19,7 +19,7 @@ int non_space_char(char c)
     return 1;
 }
 
-// Returns a pointer to the first character of the next space-separated word in zero-terminated str.
+/* Returns a pointer to the first character of the next space-separated word in zero-terminated str. */
 char *word_start(char* str)
 {
   if (count_words(str) > 0) // Determine if more than zero words exist
@@ -36,7 +36,7 @@ char *word_start(char* str)
         return str; // Return original array if no valid chars exist
 }
 
-// Returns a pointer to the first space character in zero-terminated str.
+/* Returns a pointer to the first space character in zero-terminated str. */
 char *word_terminator(char* str)
 {
     while(non_space_char(*str))
@@ -48,7 +48,7 @@ char *word_terminator(char* str)
     return "0";
 }
 
-// Counts the number of words in the string argument. 
+/* Counts the number of words in the string argument. */
 int count_words(char* str)
 {
     int i = 0;
@@ -80,7 +80,7 @@ char* copy_str(char* inStr, short len)
     return copy;
 }
 
-/* Helper method to copy_str*/
+/* Helper method to copy_str */
 int string_length(char *str)
 {
     int num_chars = 0;
@@ -92,3 +92,12 @@ int string_length(char *str)
     }
     return num_chars;
 }
+
+/* Tokenizer function */
+char **tokenize(char* str){}
+
+/* Prints all tokens. */
+void print_tokens(char **tokens){}
+
+/* Frees all tokens and the vector containing themx. */
+void free_tokens(char **tokens){}
