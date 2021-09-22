@@ -50,6 +50,11 @@ int main()
   i++;
   }
   */
+  
+  //Test Tokenizer & Print_tokens
+  printf("Tokens from String: \n");
+  print_tokens(tokenize(str_copy));
+  
   if(user_input[0] != 'x')
     main();
 
