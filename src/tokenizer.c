@@ -40,7 +40,7 @@ char *word_terminator(char *str)
         str++;
         if (*str == 32) //Set to 32 as it means space in ASCII
             return str; // Return the end of current word
-        if (str == NULL)
+        if (*str == '\0')
             return "0";
     }
     return "0";
@@ -57,8 +57,8 @@ int count_words(char* str)
         if(space_char(*p++))
             words++;
     }
-    if(word_terminator(p) == "0")
-        words++;
+    words++;
+
     return words;
     
 }
