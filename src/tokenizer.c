@@ -80,16 +80,6 @@ char* copy_str(char* inStr, short len)
 /* Helper method to copy_str using pointer arithmetic*/
 int string_length(char *str)
 {
-    /*
-    int num_chars = 0;
-    int pos = 0;
-    while(str[pos])
-    {
-        num_chars++;
-        pos++;
-    }
-    return num_chars;
-    */
     int num_chars = 0;
     while (*str != '\0')
     {
