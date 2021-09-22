@@ -71,10 +71,8 @@ char* copy_str(char* inStr, short len)
     
     int plc = 0;
     while(*inStr != '\0') {
-        //printf("[%d]: %c", i, inStr[i], "\n");
         copy[plc] = *inStr++;
         plc++;
-        //printf("[%d]: %c", i, copy[i], "\n");
     }
     return copy;
 }
