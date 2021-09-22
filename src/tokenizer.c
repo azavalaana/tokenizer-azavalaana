@@ -66,10 +66,11 @@ int count_words(char* str)
 /* Returns a fresly allocated new string containing <len> chars from <inStr> */
 char* copy_str(char* inStr, short len)
 {
-    char* copy = (char*)malloc(len+1 * sizeof(char));
+    char* copy = (char*)malloc( len+1 * sizeof(char)); //allocate extra memory for '0\'
     copy[len] = '\0';
     
-    int plc = 0;
+    int plc = 0; //add '\0' to the end of the string
+    
     while(*inStr != '\0') {
         copy[plc] = *inStr++;
         plc++;
@@ -90,7 +91,33 @@ int string_length(char *str)
 }
 
 /* Tokenizer function */
-char **tokenize(char* str){}
+char **tokenize(char* str){
+    int size = count_words(str);
+    char **tokens = (char**)malloc( size+1 * sizeof(char*));
+    
+    char* start = str;
+    char* end = word_terminator(str);
+    
+    int i = 0;
+    while(i < size)
+    {
+        if(i > 0) {
+            start = word_start(end);
+            end = word_terminator(start);
+        }
+        
+        int word_size = end - start;
+        tokens[i] = malloc(word_size * sizeof(char));
+        
+        for(int j = 0; j < word_size; j++)
+        {
+            tokens[i][j] = start[j];
+        }
+        i++;
+    }
+    tokens[i] = '\0';
+    return tokens;
+}
 
 /* Prints all tokens. */
 void print_tokens(char **tokens){}
