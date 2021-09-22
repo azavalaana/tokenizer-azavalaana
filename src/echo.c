@@ -50,6 +50,8 @@ int main()
   i++;
   }
   */
+  /*Third Milestone: Make tokens using the methods implemented in milestone 2 & using the input from milestone one */
+  printf("Milestone 3\n");
   
   //Test Tokenizer & Print_tokens
   printf("Tokens from String: \n");
