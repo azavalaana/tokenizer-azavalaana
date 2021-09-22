@@ -61,6 +61,7 @@ int main()
   //Test free_tokens
   printf("Freeing Tokens: \n");
   free_tokens(tokens);
+  printf("Print tokens: \n");
   print_tokens(tokens);
   
   if(user_input[0] != 'x')

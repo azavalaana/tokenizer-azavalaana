@@ -123,7 +123,7 @@ void print_tokens(char **tokens){
     {
         printf("Token [%d]: %s\n", i, tokens[i]);
     }
-    printf("Token [%d]: %s\n\n", i, "0");
+    //  printf("Token [%d]: %s\n\n", i, "0");
 }
 
 /* Frees all tokens and the vector containing themx. */
