@@ -53,7 +53,13 @@ int main()
   
   //Test Tokenizer & Print_tokens
   printf("Tokens from String: \n");
-  print_tokens(tokenize(str_copy));
+  char** tokens = tokenize(user_input);
+  print_tokens(tokens);
+  
+  //Test free_tokens
+  printf("Freeing Tokens: \n");
+  free_tokens(tokens);
+  print_tokens(tokens);
   
   if(user_input[0] != 'x')
     main();

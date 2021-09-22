@@ -8,7 +8,7 @@
 /* Return true (non-zero) if c is a whitespace characer ('\t' or ' '). */ 
 int space_char(char c)
 {
-    if(c == ' ' || c == '\t') 
+    if(c == ' ' || c == '\t' || c == '\0') 
         return true;
     return false;
 }
@@ -24,14 +24,11 @@ int non_space_char(char c)
 /* Returns a pointer to the first character of the next space-separated word in zero-terminated str. */
 char *word_start(char *str)
 {
-    if (space_char(*str)) //In case it starts on a whitespace can skip to first letter
-        str++;
-    while (space_char(*str))
+    while(!non_space_char(*str))
     {
-        if (non_space_char(*str++)) //In case it starts on a whitespace can skip to first letter
-            return(str);
+        str++;
     }
-    return (str++); 
+    return str;
 }
 
 /* Returns a pointer to the first space character in zero-terminated str. */
@@ -40,7 +37,6 @@ char *word_terminator(char *str)
     while(non_space_char(*str))
     {
         str++;
-        
     }
     return str;
 }
@@ -66,14 +62,14 @@ int count_words(char* str)
 char* copy_str(char* inStr, short len)
 {
     char* copy = NULL;
-    copy = (char*)malloc((len + 1)* sizeof(char)); //allocate extra memory for '0\'
-    copy[len] = '\0';
+    char* pointer = inStr;
     
-    int plc = 0; //add '\0' to the end of the string
+    copy = (char*)malloc((len + 1) * sizeof(char)); //allocate extra memory for '0\'
+    copy[len] = '\0'; //add '\0' to the end of the string
     
-    while(*inStr != '\0') {
-        copy[plc] = *inStr++;
-        plc++;
+    int plc = 0; 
+    while(*pointer != '\0') {
+        copy[plc++] = *pointer++;
     }
     return copy;
 }
@@ -87,6 +83,7 @@ int string_length(char *str)
         num_chars++;
         str++;
     }
+    num_chars--;
     return num_chars;
 }
 
@@ -99,7 +96,7 @@ char **tokenize(char* str){
     char* end = word_terminator(str);
     
     int i = 0;
-    while(i < size)
+    for(i = 0; i < size; i++)
     {
         if(i > 0) {
             start = word_start(end);
@@ -107,15 +104,13 @@ char **tokenize(char* str){
         }
         
         int word_size = end - start;
-        printf("%d\n", word_size);
+        //printf("%d\n", word_size);
         tokens[i] = malloc(word_size * sizeof(char));
         
         for(int j = 0; j < word_size; j++)
         {
             tokens[i][j] = start[j];
         }
-        //printf("%s\n", tokens[i]);
-        i++;
     }
     tokens[i] = '\0';
     return tokens;
@@ -123,13 +118,20 @@ char **tokenize(char* str){
 
 /* Prints all tokens. */
 void print_tokens(char **tokens){
-    int num = 1;
-    for(int i = 0; tokens[i] != NULL; i++)
+    int i;
+    for(i = 0; tokens[i] != NULL; i++)
     {
-        printf("Token %d :[ %s ]\n", num, tokens[i]);
-        num++;
+        printf("Token [%d]: %s\n", i, tokens[i]);
     }
+    printf("Token [%d]: %s\n\n", i, "0");
 }
 
 /* Frees all tokens and the vector containing themx. */
-void free_tokens(char **tokens){}
+void free_tokens(char **tokens){
+    int i;
+    for(i = 0; tokens[i] != NULL; i++)
+    {
+        free(tokens[i]);
+    }
+    free(tokens);
+}
