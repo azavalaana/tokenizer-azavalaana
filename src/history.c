@@ -62,4 +62,5 @@ void print_history(List* list)
 void free_history(List* list)
 {
     Item* temp = (list -> root);
+    free(list);
 }

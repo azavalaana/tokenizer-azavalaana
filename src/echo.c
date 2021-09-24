@@ -10,15 +10,20 @@ int count = 0;
 int main()
 {
     /* First Milestone: Simple functioning UI that echos user input */
-    printf("Enter a String. Enter '!' to see history. Type x to exit\nEnter \"!<number>\" to see a specific part of the history.\n> ");
+    printf("Enter a String. Enter '!' to see history. Type x to exit\nEnter \"!<number>\" to see a specific part of the history.\n");
     
     char user_input[MAX];
     List *history = init_history(); //Initialize History
-    fgets(user_input, MAX, stdin);
     
     while(user_input[0] != 'x')
     {
-        
+      printf(">");
+      fgets(user_input, MAX, stdin);
+      
+      if(user_input[0] == 'x') {
+	break;
+      }
+      if(user_input[0] != '!') {
         printf("\nMilestone 1\nInput: %s\n", user_input);
         
         /* After milestone one echo.c becomes the main ui for the tokenizer */
@@ -47,26 +52,30 @@ int main()
         end_word = word_terminator(start_word);
         printf("End of next: %s\n",end_word);
         i++;
-        }
+          }
         */
         /*Third Milestone: Make tokens using the methods implemented in milestone 2 & using the input from milestone one */
-        printf("Milestone 3\n");
-        
+        printf("Milestone 3 (?)\n");
+       
         //Test Tokenizer & Print_tokens
         printf("Tokens from String: \n");
         char** tokens = tokenize(user_input);
         print_tokens(tokens);
+
+	add_history(history, str_copy);
+	print_history(history);
         
         //Test free_tokens
         printf("Freeing Tokens: \n");
         free_tokens(tokens);
         printf("Print tokens: \n");
         print_tokens(tokens);
+      }
         
     }
     printf("history of the run:\n");
     print_history(history);
-    //free_history(history);
+    free_history(history);
     
     printf("On to the next one!\n");
     return 0;
