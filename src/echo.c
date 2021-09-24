@@ -25,19 +25,23 @@ int main()
         if(user_input[0] == 'x') { //close program
             break;
         } 
-        else if(user_input[0] == 'i') { //print instructions
+        else if(user_input[0] == '?') { //print instructions
             printf("Enter string. ! for history. x to exit\n\"!<number>\" see a specific part of history.\n");
         } 
         else if(user_input[0] == '!') { //history option
-	  printf("\n\n\n %c \n\n\n", user_input[1]);
-            if(user_input[1] == '\0'){ //print all history
-                printf("Printing all history \n");
-                print_history(history);
-            }else{ //print specific part of history
-                hist_id = atoi(user_input+1);
-                hist_itm = get_history(history,hist_id);
-                printf("History Item at %d: %s", hist_id, hist_itm);
-            }
+	  hist_id = atoi(user_input+1);
+	  if(hist_id > 0){ //print all history
+	    //  printf("Printing all history \n");
+	    //  print_history(history);
+            //}else{
+	    //print specific part of history
+            hist_itm = get_history(history,hist_id);
+            printf("History Item at %d: %s", hist_id, hist_itm);
+	  }else{
+	    printf("\nPrinting whole history\n");
+	    print_history(history);
+	  }
+	  
         } 
         else if(user_input[0] != '!') {
             printf("\nMilestone 1\nInput: %s\n", user_input);
@@ -92,7 +96,7 @@ int main()
             
             
         }
-        printf("Type i to see instructions again\n");
+        printf("Type ? to see instructions again\n");
     }
     printf("\nHistory of the run:\n");
     print_history(history);
