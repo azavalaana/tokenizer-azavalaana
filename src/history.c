@@ -45,7 +45,7 @@ char* get_history(List* list, int id)
 	return temp->str;
       temp = temp->next;
     }
-    return "Item ID not found\n";
+    return "Item number not found\n";
   }
 }
 
@@ -54,12 +54,12 @@ void print_history(List* list)
   Item* temp = (list->root);
   //traverse linked list and print id and string
   while (temp != NULL){
-    printf("Item [%d]: %s \n", temp->id, temp->str);
+    printf("History Item [%d]: %s \n", temp->id, temp->str);
     temp = temp->next;
   }
 }
 
 void free_history(List* list)
 {
-
+    Item* temp = (list -> root);
 }
