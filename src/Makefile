@@ -19,4 +19,4 @@ make:
 
 
 clean:
-	rm -f *.o token 
+	rm -f *.o tokens
