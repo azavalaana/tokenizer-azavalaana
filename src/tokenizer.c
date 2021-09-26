@@ -8,7 +8,7 @@
 /* Return true (non-zero) if c is a whitespace characer ('\t' or ' '). */ 
 int space_char(char c)
 {
-    if(c == ' ' || c == '\t' || c == '\0') 
+    if(c == ' ' || c == '\t') 
         return true;
     return false;
 }
@@ -103,16 +103,16 @@ char **tokenize(char* str){
             end = word_terminator(start);
         }
         
-        int word_size = end - start;
+        int word_size = end - start; // substraction of addresses
         //printf("%d\n", word_size);
-        tokens[i] = malloc(word_size * sizeof(char));
+        tokens[i] = malloc(word_size * sizeof(char));//copystr change
         
         for(int j = 0; j < word_size; j++)
         {
             tokens[i][j] = start[j];
         }
     }
-    tokens[i] = '\0';
+    tokens[i] = 0;
     return tokens;
 }
 
