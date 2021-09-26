@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "history.h"
+#include "tokenizer.h"
 
 List* init_history()
 {
@@ -59,8 +60,15 @@ void print_history(List* list)
   }
 }
 
-void free_history(List* list)
+void free_history(List* list ) //FINISH FREE HIstory
 {
-    Item* temp = (list -> root);
-    free(list);
+  Item* temp;
+  Item* temp2;
+  temp2  = list -> root;
+  while (temp2 != NULL){
+    temp = temp2;
+    temp2 = temp2->next;
+    free(temp);
+  }
+  free(list);
 }

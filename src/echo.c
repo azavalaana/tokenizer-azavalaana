@@ -61,8 +61,8 @@ int main()
             printf("End of word: %s", end_word);
             
             // Copy_str test
-            char* str_copy = copy_str(user_input, string_length(user_input));
-            printf("Copy of String: %s\n", str_copy);
+	    char* str_copy = copy_str(user_input, string_length(user_input));
+            //printf("Copy of String: %s\n", str_copy);
             
             /* Test whole string to make sure start and terminator work correctly
              *        int i = 1;
