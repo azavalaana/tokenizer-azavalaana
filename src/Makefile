@@ -3,20 +3,20 @@
 # compiler flags.  -g for debug, -O3 for optimization
 CFLAGS=-g -O3
 
-#tokenizerlab: echo.o tokenizer.o history.o
-#		cc -o token echo.o tokenizer.o history.o
+# first target built by default
+all:	tokens
 
-#echo.o:	echo.c history.h tokenizer.h
+# file dependencies
+tokenizer.o: tokenizer.h 
 
-#tokenizer.o: tokenizer.h tokenizer.c
+history.o: history.h 
 
-#history.o: history.h history.c
+echo.o: echo.c
 
-#echo:
-#	gcc -o tokens echo.c tokenizer.c 
-make:
-	gcc -o tokens echo.c
+# compiles the tokenizer
+tokens: tokenizer.o history.o echo.o
+	cc -o $@ $^ $(CFLAGS)
 
-
+# deltes the files generated from the compilation
 clean:
 	rm -f *.o tokens

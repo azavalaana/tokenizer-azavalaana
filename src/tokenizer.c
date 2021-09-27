@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include "tokenizer.h"
 #include <stdlib.h>
-#include "history.c"
+
+//#include "history.c"
+
 #define true 1
 #define false 0
 
@@ -74,7 +76,8 @@ char* copy_str(char* inStr, short len)
     return copy;
 }
 
-/* Helper method to copy_str using pointer arithmetic*/
+/* Helper method to copy_str using pointer arithmetic */
+/*
 int string_length(char *str)
 {
     int num_chars = 0;
@@ -86,7 +89,7 @@ int string_length(char *str)
     num_chars--;
     return num_chars;
 }
-
+*/
 /* Tokenizer function */
 char **tokenize(char* str){
     int size = count_words(str);

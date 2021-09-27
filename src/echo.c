@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include "tokenizer.h"
 #include "history.h"
-#include "tokenizer.c"
+
+//#include "tokenizer.c"
+
 #define MAX 300
 
 int count = 0;
@@ -61,7 +63,17 @@ int main()
             printf("End of word: %s", end_word);
             
             // Copy_str test
-	    char* str_copy = copy_str(user_input, string_length(user_input));
+	    
+            int num_chars = 0;
+            char* str = user_input;
+            while (*str != '\0')
+            {
+                num_chars++;
+                str++;
+            }
+            num_chars--;
+            
+            char* str_copy = copy_str(user_input, num_chars);
             //printf("Copy of String: %s\n", str_copy);
             
             /* Test whole string to make sure start and terminator work correctly

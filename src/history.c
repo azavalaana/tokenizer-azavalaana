@@ -60,7 +60,7 @@ void print_history(List* list)
   }
 }
 
-void free_history(List* list ) //FINISH FREE HIstory
+void free_history(List* list )
 {
   Item* temp;
   Item* temp2;
